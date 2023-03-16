@@ -2,19 +2,19 @@
 
 using namespace std;
 
-struct listNode
+struct ListNode
 {
 	int val;
-	listNode *next;
+	ListNode *next;
 
 };
 
-bool detectCycle(listNode *head)
+bool detectCycle(ListNode *head)
 {
     if (head==nullptr) return 0;
     
-    listNode *i = head;
-    listNode *j = head;
+    ListNode *i = head;
+    ListNode *j = head;
     if(head->next == nullptr) return false;
     
     j = j->next;
@@ -29,19 +29,19 @@ bool detectCycle(listNode *head)
     return false;
 }
 
-void input(listNode*& head)
+void input(ListNode*& head)
 {
     int n;
     cin >> n;
     if (n==0) return;
     
-    listNode* cur = head;
-    listNode* last;
+    ListNode* cur = head;
+    ListNode* last;
     while (n)
     {
         last = cur;
         cur->val = n;
-        cur->next = new listNode;
+        cur->next = new ListNode;
         cur = cur->next;
         cur->next = nullptr;
         cin >> n;
@@ -51,7 +51,7 @@ void input(listNode*& head)
 
 signed main()
 {
-	listNode *head = new listNode;
+	ListNode *head = new listNode;
 	input(head);
     
     if(detectCycle(head)) cout << "there is a cycle\n";
